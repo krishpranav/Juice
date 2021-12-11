@@ -90,12 +90,19 @@ void juice_set_stdout_write_function(juice_t *juice, juice_stdout_write_fn stdou
 void juice_set_file_write_function(juice_t *juice, juice_write_file_fn file_write, void *context);
 void juice_set_file_read_function(juice_t *juice, juice_read_file_fn file_read, void *context);
 
-juice_program_t* juice_compile(juice_t *ape, const char *code);
-juice_program_t* juice_compile_file(juice_t *ape, const char *path);
-juice_object_t   juice_execute_program(juice_t *ape, const juice_program_t *program);
+juice_program_t* juice_compile(juice_t *juice, const char *code);
+juice_program_t* juice_compile_file(juice_t *juice, const char *path);
+juice_object_t   juice_execute_program(juice_t *juice, const juice_program_t *program);
 void           juice_program_destroy(juice_program_t *program);
 
-juice_object_t  juice_execute(juice_t *ape, const char *code);
-juice_object_t  juice_execute_file(juice_t *ape, const char *path);
+juice_object_t  juice_execute(juice_t *juice, const char *code);
+juice_object_t  juice_execute_file(juice_t *juice, const char *path);
 
-juice_object_t  juice_call(juice_t *ape, const char *function_name, int argc, juice_object_t *args);
+juice_object_t  juice_call(juice_t *juice, const char *function_name, int argc, juice_object_t *args);
+
+#define JUICE_CALL(juice, function_name, ...) \
+    juice_call(\
+        (juice),\
+        (function_name),\
+        sizeof((juice_object_t[]){__VA_ARGS__}) / sizeof(juice_object_t),\
+        (juice_object_t[]){__VA_ARGS__})
