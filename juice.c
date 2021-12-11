@@ -72,5 +72,11 @@
 typedef struct compiled_file compiled_file_t;
 typedef struct allocator allocator_t;
 
+typedef struct src_pos {
+    const compiled_file_t *file;
+    int line;
+    int column;
+} src_pos_t;
+
 
 #endif
