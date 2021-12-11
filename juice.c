@@ -79,4 +79,29 @@ typedef struct src_pos {
 } src_pos_t;
 
 
+typedef struct juice_config {
+    struct {
+        struct {
+            juice_stdout_write_fn write;
+            void *context;
+        } write;
+    } stdio;
+
+    struct {
+        struct {
+            juice_read_file_fn read_file;
+            void *context;
+        } read_file;
+
+        struct {
+            juice_write_file_fn write_file;
+            void *context;
+        } write_file;
+    } fileio;
+
+    bool repl_mode; 
+
+    double max_execution_time_ms;
+    bool max_execution_time_set;
+} juice_config_t;
 #endif
