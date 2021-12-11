@@ -62,5 +62,15 @@
     #define JUICE_LOG(...) ((void)0)
 #endif
 
+#ifndef JUICE_AMALGAMATED
+    #define COLLECTIONS_AMALGAMATED
+    #define JUICE_INTERNAL static
+#else
+    #define JUICE_INTERNAL
+#endif
+
+typedef struct compiled_file compiled_file_t;
+typedef struct allocator allocator_t;
+
 
 #endif
