@@ -106,4 +106,13 @@ typedef struct juice_config {
 } juice_config_t;
 #endif
 
+typedef struct juice_timer {
+#if defined(JUICE_POSIX)
+    int64_t start_offset;
+#elif defined(JUICE_WINDOWS)
+    double pc_frequency;
+#endif
+    double start_time_ms;
+} juice_timer_t;
+
 #endif
