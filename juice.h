@@ -47,3 +47,24 @@ typedef enum juice_error_type {
     JUICE_ERROR_ALLOCATION,
     JUICE_ERROR_USER,
 } juice_error_type_t;
+
+/**
+ * @brief object type
+ * 
+ */
+
+typedef enum juice_object_type {
+    JUICE_OBJECT_NONE            = 0,
+    JUICE_OBJECT_ERROR           = 1 << 0,
+    JUICE_OBJECT_NUMBER          = 1 << 1,
+    JUICE_OBJECT_BOOL            = 1 << 2,
+    JUICE_OBJECT_STRING          = 1 << 3,
+    JUICE_OBJECT_NULL            = 1 << 4,
+    JUICE_OBJECT_NATIVE_FUNCTION = 1 << 5,
+    JUICE_OBJECT_ARRAY           = 1 << 6,
+    JUICE_OBJECT_MAP             = 1 << 7,
+    JUICE_OBJECT_FUNCTION        = 1 << 8,
+    JUICE_OBJECT_EXTERNAL        = 1 << 9,
+    JUICE_OBJECT_FREED           = 1 << 10,
+    JUICE_OBJECT_ANY             = 0xffff, 
+} juice_object_type_t;
