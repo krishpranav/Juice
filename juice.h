@@ -68,3 +68,7 @@ typedef enum juice_object_type {
     JUICE_OBJECT_FREED           = 1 << 10,
     JUICE_OBJECT_ANY             = 0xffff, 
 } juice_object_type_t;
+
+typedef juice_object_t (*juice_native_fn)(juice_t *juice, void *data, int argc, juice_object_t *args);
+typedef void* (*juice_malloc_fn)(void *ctx, size_t size);
+typedef void (*juice_free_fn)(void *ctx, void *ptr);
