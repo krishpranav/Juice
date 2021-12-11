@@ -35,4 +35,17 @@
     #define JUICE_POSIX
 #endif
 
+#if defined(JUICE_POSIX)
+#include <sys/time.h>
+#elif defined(JUICE_WINDOWS)
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+#elif defined(JUICE_EMSCRIPTEN)
+#include <emscripten/emscripten.h>
+#endif
+
+#ifndef JUICE_AMALGAMATED
+#include "juice.h"
+#endif
+
 #endif
