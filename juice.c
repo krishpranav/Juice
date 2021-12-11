@@ -105,3 +105,5 @@ typedef struct juice_config {
     bool max_execution_time_set;
 } juice_config_t;
 #endif
+
+#endif
