@@ -72,3 +72,14 @@ typedef enum juice_object_type {
 typedef juice_object_t (*juice_native_fn)(juice_t *juice, void *data, int argc, juice_object_t *args);
 typedef void* (*juice_malloc_fn)(void *ctx, size_t size);
 typedef void (*juice_free_fn)(void *ctx, void *ptr);
+typedef void (*juice_data_destroy_fn)(void* data);
+typedef void* (*juice_data_copy_fn)(void* data);
+
+typedef size_t (*juice_stdout_write_fn)(void* context, const void *data, size_t data_size);
+typedef char* (*juice_read_file_fn)(void* context, const char *path);
+typedef size_t (*juice_write_file_fn)(void* context, const char *path, const char *string, size_t string_size);
+
+juice_t* juice_make(void);
+juice_t* juice_make_ex(juice_malloc_fn malloc_fn, juice_free_fn free_fn, void* ctx);
+void juice_destroy(juice_t *juce);
+void juice_set_repl_mode(juice_t *juice, bool enabled);
