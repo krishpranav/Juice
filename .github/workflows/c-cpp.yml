@@ -27,8 +27,5 @@ jobs:
     - name: Update Pkgs
       run: brew update
 
-    - name: Check pkgs
-      run: brew info gcc g++ make
-      
     - name: Install Deps
       run: brew install gcc g++ make
