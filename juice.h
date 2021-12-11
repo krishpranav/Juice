@@ -83,3 +83,19 @@ juice_t* juice_make(void);
 juice_t* juice_make_ex(juice_malloc_fn malloc_fn, juice_free_fn free_fn, void* ctx);
 void juice_destroy(juice_t *juce);
 void juice_set_repl_mode(juice_t *juice, bool enabled);
+
+bool juice_set_timeout(juice_t *juice, double max_execution_time_ms);
+
+void juice_set_stdout_write_function(juice_t *juice, juice_stdout_write_fn stdout_write, void *context);
+void juice_set_file_write_function(juice_t *juice, juice_write_file_fn file_write, void *context);
+void juice_set_file_read_function(juice_t *juice, juice_read_file_fn file_read, void *context);
+
+juice_program_t* juice_compile(juice_t *ape, const char *code);
+juice_program_t* juice_compile_file(juice_t *ape, const char *path);
+juice_object_t   juice_execute_program(juice_t *ape, const juice_program_t *program);
+void           juice_program_destroy(juice_program_t *program);
+
+juice_object_t  juice_execute(juice_t *ape, const char *code);
+juice_object_t  juice_execute_file(juice_t *ape, const char *path);
+
+juice_object_t  juice_call(juice_t *ape, const char *function_name, int argc, juice_object_t *args);
