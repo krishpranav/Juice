@@ -48,4 +48,19 @@
 #include "juice.h"
 #endif
 
+#define JUICE_STREQ(a, b) (strcmp((a), (b)) == 0)
+#define JUICE_STRNEQ(a, b, n) (strncmp((a), (b), (n)) == 0)
+#define JUICE_ARRAY_LEN(array) ((int)(sizeof(array) / sizeof(array[0])))
+#define JUICE_DBLEQ(a, b) (fabs((a) - (b)) < DBL_EPSILON)
+
+#ifndef JUICE_DEBUG
+    #define JUICE_ASSERT(x) assert((x))
+    #define JUICE_FILENAME (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
+    #define JUICE_LOG(...) juice_log(JUICE_FILENAME, __LINE__, __VA_ARGS__)
+#else
+    #define JUICE_ASSERT(x) ((void)0)
+    #define JUICE_LOG(...) ((void)0)
+#endif
+
+
 #endif
