@@ -35,3 +35,20 @@ int main(int argc, char *argv[]) {
 #if 0
     } 
 #endif
+
+    for (int i = 0; i < tests_len; i++) {
+        const char *test = tests[i];
+        g_alloc_data.malloc_count = 0;
+        g_alloc_data.total_malloc_count = 0;
+        printf("Benchmarking %s: \n", test);
+        clock_t start = clock();
+        execute_file(test, true);
+        clock_t end = clock();
+        float seconds = (float)(end - start) / CLOCKS_PER_SEC;
+        printf("\tTime: %1.3g seconds\n", (double)seconds);
+        printf("\tAllocations: %1.0f k\n", g_alloc_data.total_malloc_count / 1000.0);
+        assert(g_alloc_data.malloc_count == 0);
+        puts("OK");
+    }
+    return 0;
+}
