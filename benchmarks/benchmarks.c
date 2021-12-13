@@ -13,8 +13,10 @@ static void print_juice_errors(juice_t *juice);
 
 typedef struct alloc_data {
     int malloc_count;
-    int total_malloc_count; 
+    int total_malloc_count;
 } alloc_data_t;
+
+static alloc_data_t g_alloc_data;
 
 #ifdef JUICE_BENCHMARKS_MAIN
 int main(int argc, char *argv[]) {
@@ -51,6 +53,45 @@ int main(int argc, char *argv[]) {
         puts("OK");
     }
     return 0;
+}
+
+static bool execute_file(const char *filename, bool must_succeed) {
+    juice_t *juice = juice_make_ex(counted_malloc, counted_free, &g_alloc_data);
+
+    juice_program_t *program = juice_compile_file(juice, filename);
+    if (!program || juice_has_errors(juice)) {
+        print_juice_errors(juice);
+        assert(false);
+    }
+    juice_execute_program(juice, program);
+    if (juice_has_errors(juice)) {
+        print_juice_errors(juice);
+        assert(false);
+    }
+    juice_program_destroy(program);
+    juice_destroy(juice);
+    return true;
+}
+
+static void *counted_malloc(void *ctx, size_t size) {
+    alloc_data_t *alloc_data = (alloc_data_t*)ctx;
+    if (size == 0) {
+        return NULL;
+    }
+    void *res = malloc(size);
+    alloc_data->malloc_count++;
+    alloc_data->total_malloc_count++;
+    assert(res != NULL);
+    return res;
+}
+
+static void counted_free(void *ctx, void *ptr) {
+    alloc_data_t *alloc_data = (alloc_data_t*)ctx;
+    if (ptr == NULL) {
+        return;
+    }
+    alloc_data->malloc_count--;
+    free(ptr);
 }
 
 static void print_juice_errors(juice_t *juice) {
