@@ -52,3 +52,13 @@ int main(int argc, char *argv[]) {
     }
     return 0;
 }
+
+static void print_juice_errors(juice_t *juice) {
+    int count = juice_errors_count(juice);
+    for (int i = 0; i < count; i++) {
+        const juice_error_t *err = juice_get_error(juice, i);
+        char *err_str = juice_error_serialize(juice, err);
+        puts(err_str);
+        juice_free_allocated(juice, err_str);
+    }
+}
