@@ -22,6 +22,11 @@ jobs:
 
     - name: check gcc version
       run: gcc --version
+
+    - name: build juice
+      run: |
+        cd examples/
+        make
   
   build-macos:
 
@@ -34,3 +39,8 @@ jobs:
 
     - name: check gcc version
       run: gcc --version
+    
+    - name: build juice
+      run: |
+        cd examples/
+        make
