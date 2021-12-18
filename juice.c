@@ -14019,7 +14019,6 @@ static bool try_overload_operator(vm_t *vm, object_t left, object_t right, opcod
 #if (JUICE_VERSION_MAJOR != JUICE_IMPL_VERSION_MAJOR)\
  || (JUICE_VERSION_MINOR != JUICE_IMPL_VERSION_MINOR)\
  || (JUICE_VERSION_PATCH != JUICE_IMPL_VERSION_PATCH)
-    // #error "mismatch"
 #endif
 
 #ifndef JUICE_AMALGAMATED
