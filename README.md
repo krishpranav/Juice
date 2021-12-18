@@ -12,3 +12,9 @@ $ make
 $ mv juice /usr/local/bin
 $ juice
 ```
+
+## Tutorial:
+- basic print function
+```ruby
+println!(`Hello World`)
+```
