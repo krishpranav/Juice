@@ -115,4 +115,11 @@ typedef struct juice_timer {
     double start_time_ms;
 } juice_timer_t;
 
+#ifndef JUICE_AMALGAMATED
+extern const src_pos_t src_pos_invalid;
+extern const src_pos_t src_pos_zero;
+#endif
+
+JUICE_INTERNAL src_pos_t src_pos_make(const compiled_file_t *file, int line, int column);
+
 #endif
