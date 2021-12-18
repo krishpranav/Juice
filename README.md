@@ -18,3 +18,14 @@ $ juice
 ```ruby
 println!(`Hello World`)
 ```
+
+- intrested in juice programming language??
+- check out the [docs] for more tutorial!!
+
+## Author:
+- [krishpranav](https://github.com/krishpranav)
+
+## Juice is an opensource project you can contribute to it
+
+## License
+- Apache-2.0
