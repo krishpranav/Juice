@@ -22,6 +22,8 @@ println!(`Hello World`)
 - intrested in juice programming language??
 - check out the [docs] for more tutorial!!
 
+- download the juice programming [vscode](https://marketplace.visualstudio.com/items?itemName=Juiceteam.juice&ssr=false#review-details) extension to code juice in your ide
+
 ## Author:
 - [krishpranav](https://github.com/krishpranav)
 
