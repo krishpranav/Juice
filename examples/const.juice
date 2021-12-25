@@ -1,2 +1,11 @@
 const name = "Name One"
+const company = "Company one"
+const location = "Some Location"
+const email = "somemail@gmail.com"
+var age = 10
+
 println(name)
+println(company)
+println(location)
+println(email)
+println(age)
