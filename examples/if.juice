@@ -1,0 +1,8 @@
+var a = 2
+var b = 2 
+
+if (a == b) {
+    println("value of a = b")
+} else {
+    println("values are not same")
+}
