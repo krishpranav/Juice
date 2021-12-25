@@ -16,7 +16,7 @@ $ juice
 ## Tutorial:
 - basic print function
 ```ruby
-println!(`Hello World`)
+println(`Hello World`)
 ```
 
 - intrested in juice programming language??
