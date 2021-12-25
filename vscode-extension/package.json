@@ -1,0 +1,37 @@
+{
+    "name": "juice",
+    "displayName": "juicelang",
+    "description": "juce language",
+    "version": "1.0.0",
+    "publisher": "Juice team",
+    "icon": "images/logo.png",
+    "engines": {
+        "vscode": "^1.41.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [
+            {
+                "id": "juice",
+                "aliases": [
+                    "juice",
+                    "juice"
+                ],
+                "extensions": [
+                    ".juice",
+		    ".juce"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "juice",
+                "scopeName": "source.juice",
+                "path": "./syntaxes/juce.tmLanguage.json"
+            }
+        ]
+    }
+}
