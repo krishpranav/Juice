@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include "juice.h"
 
+void banner();
+
 int main(int argc, char *argv[]) {
     if (argc < 2) {
-        printf("Usage: %s FILE [JUICE_ARGS]\n", argv[0]);
+        banner();
         return 1;
     }
     juice_t *juice = juice_make();
@@ -28,4 +30,26 @@ int main(int argc, char *argv[]) {
     }
     juice_destroy(juice);
     return ok;
+}
+
+void banner() {
+    const char juice[] = "Juice Programming Language";
+    printf(juice);
+    printf("\n");
+    
+    const char license[] = "License: Apache-2.0 2021";
+    printf(license);
+    printf("\n");
+
+    const char repo[] = "Repo: https://github.com/krishpranav/juice";
+    printf(repo);
+    printf("\n");
+
+    const char author[] = "Author: krishpranav";
+    printf(author);
+    printf("\n");
+
+    const char args[] = "./juice file.juice";
+    printf(args);
+    printf("\n");
 }
