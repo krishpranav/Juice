@@ -2,9 +2,9 @@
     "name": "juice",
     "displayName": "juicelang",
     "description": "juce language",
-    "version": "1.0.0",
-    "publisher": "Juice team",
-    "icon": "images/logo.png",
+    "version": "1.1.0",
+    "publisher": "Juiceteam",
+    "icon": "images/juice.png",
     "engines": {
         "vscode": "^1.41.0"
     },
